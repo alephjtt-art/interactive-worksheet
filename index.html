@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: transparent;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    background: white;
+    border: 1px solid #398b35;
+}
+
+th {
+    background: #58b66a;
+    color: white;
+    border: 1px solid #398b35;
+    padding: 10px 4px;
+    font-size: 14px;
+    text-align: center;
+}
+
+td {
+    border: 1px solid #398b35;
+    padding: 8px 5px;
+    font-size: 13px;
+    color: #222;
+}
+
+.no {
+    width: 11%;
+    text-align: center;
+}
+
+.statement {
+    width: 53%;
+}
+
+.answer {
+    width: 18%;
+    text-align: center;
+}
+
+.number {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #ff8297;
+    color: white;
+    font-weight: bold;
+}
+
+.check-box {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 42px;
+    height: 42px;
+    border: 2px solid #006b26;
+    border-radius: 9px;
+    background: #e9f8ff;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.check-box:checked {
+    background: #e9f8ff;
+}
+
+.check-box:checked::after {
+    content: "✓";
+    color: #00852b;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.check-box:focus-visible {
+    outline: 3px solid #58b66a;
+    outline-offset: 2px;
+}
+</style>
+</head>
+
+<body>
+
+<table>
+<thead>
+<tr>
+    <th class="no">No.</th>
+    <th class="statement">Pernyataan</th>
+    <th class="answer">Benar</th>
+    <th class="answer">Salah</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+    <td class="no"><span class="number">1</span></td>
+    <td class="statement">
+        Rokok elektrik atau Vape aman digunakan oleh remaja
+    </td>
+    <td class="answer">
+        <input type="checkbox" class="check-box" name="q1">
+    </td>
+    <td class="answer">
+        <input type="checkbox" class="check-box" name="q1">
+    </td>
+</tr>
+
+<tr>
+    <td class="no"><span class="number">2</span></td>
+    <td class="statement">
+        Rokok elektrik dapat membuat seseorang kecanduan
+    </td>
+    <td class="answer">
+        <input type="checkbox" class="check-box" name="q2">
+    </td>
+    <td class="answer">
+        <input type="checkbox" class="check-box" name="q2">
+    </td>
+</tr>
+
+<tr>
+    <td class="no"><span class="number">3</span></td>
+    <td class="statement">
+        Vape dapat mengganggu kesehatan paru-paru
+    </td>
+    <td class="answer">
+        <input type="checkbox" class="check-box" name="q3">
+    </td>
+    <td class="answer">
+        <input type="checkbox" class="check-box" name="q3">
+    </td>
+</tr>
+
+<tr>
+    <td class="no"><span class="number">4</span></td>
+    <td class="statement">
+        Kita boleh mencoba vape karena hanya sekali
+    </td>
+    <td class="answer">
+        <input type="checkbox" class="check-box" name="q4">
+    </td>
+    <td class="answer">
+        <input type="checkbox" class="check-box" name="q4">
+    </td>
+</tr>
+
+<tr>
+    <td class="no"><span class="number">5</span></td>
+    <td class="statement">
+        Menolak ajakan teman untuk merokok elektrik adalah tindakan yang baik
+    </td>
+    <td class="answer">
+        <input type="checkbox" class="check-box" name="q5">
+    </td>
+    <td class="answer">
+        <input type="checkbox" class="check-box" name="q5">
+    </td>
+</tr>
+
+</tbody>
+</table>
+
+<script>
+document.querySelectorAll('input[type="checkbox"]').forEach(box => {
+    box.addEventListener('change', function() {
+        if (this.checked) {
+            document.querySelectorAll(
+                'input[name="' + this.name + '"]'
+            ).forEach(other => {
+                if (other !== this) {
+                    other.checked = false;
+                }
+            });
+        }
+    });
+});
+</script>
+
+</body>
+</html>
